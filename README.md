@@ -72,27 +72,6 @@ This project simulates a real e-commerce analytics workflow, where technical SQL
 
 ---
 
-## 📂 Repository Structure
-📂 marketing-analytics-dashboard
-│── 📂 data
-│ └── sample_data.csv # optional (anonymized/reduced dataset)
-│
-│── 📂 sql
-│ ├── attributed_revenue.sql
-│ ├── total_spend.sql
-│ ├── revenue_by_region.sql
-│ └── ...
-│
-│── 📂 dax
-│ ├── attributed_revenue.dax
-│ ├── total_spend.dax
-│ └── ...
-│
-│── 📂 images
-│ └── dashboard_mockup.png # Power BI screenshots (even work-in-progress)
-│
-│── README.md
-
 ## 📸 Dashboard (Work in Progress)
 Executive Overview
 
