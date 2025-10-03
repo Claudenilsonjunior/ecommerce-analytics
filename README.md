@@ -1,40 +1,84 @@
-## 📊 Marketing Analytics Dashboard – E-commerce Campaign Insights
+# 📊 Marketing Analytics Dashboard – E-commerce Campaign Insights
 
-In this project, I step into the role of a Data Analyst at an e-commerce company struggling to understand the real impact of its marketing investments.
+In this project, I step into the role of a **Data Analyst** at an e-commerce company struggling to understand the real impact of its marketing investments.
 
 The company has been heavily spending on paid campaigns across multiple channels, but executives are questioning:
 
-Are these campaigns actually bringing revenue?
+- Are these campaigns actually bringing revenue?  
+- Which channels and regions perform best?  
+- What is the return on investment (ROI) of each campaign?  
 
-Which channels and regions perform best?
+To answer these questions, I built a **complete analytics solution powered by SQL, DAX, and Power BI**, connecting raw marketing and sales data into a set of business-driven insights.
 
-What is the return on investment (ROI) of each campaign?
-
-To answer these questions, I built a complete analytics solution powered by SQL, DAX, and Power BI, connecting raw marketing and sales data into a set of business-driven insights.
 ---
 
 ## 🛍️ Business Context
 
-The fictional e-commerce sells multiple product categories online, running campaigns across digital channels.
-However, the marketing team faced several challenges:
+The fictional e-commerce sells multiple product categories online, running campaigns across digital channels. However, the marketing team faced several challenges:
 
-Campaign reports didn’t match sales data (inconsistent order IDs, invalid conversions).
+- Campaign reports didn’t match sales data (inconsistent order IDs, invalid conversions).  
+- Executives lacked a single source of truth for KPIs like **ROI, Attributed Revenue, and Average Order Value (AOV)**.  
+- Spending was increasing, but profitability was unclear.  
 
-Executives lacked a single source of truth for KPIs like ROI, Attributed Revenue, and Average Order Value.
+This dashboard was created to provide **executives with clarity** and enable **better marketing decisions**.
 
-Spending was increasing, but profitability was unclear.
+---
 
-This dashboard was created to provide executives with clarity and enable better marketing decisions.
+## 🎯 Business Goals
 
-🎯 Business Goals
+- Attribute sales revenue to marketing campaigns more accurately  
+- Measure campaign ROI and compare investment vs return  
+- Identify best-performing regions, channels, and product categories  
+- Provide both an **executive overview** and a **drilldown for analysts**
 
-Attribute sales revenue to marketing campaigns more accurately
+---
 
-Measure campaign ROI and compare investment vs return
+## 🔍 Data Quality Issues Found
 
-Identify best-performing **regions, channels, and product categories**
+Before analysis, several problems were identified:
 
-Provide an executive view for decision makers and a detailed drilldown for analysts
+- **3,373** incoherent dates (delivery before order date)  
+- **2,518** invalid unit prices (≤ 0)  
+- **1,048** zero-quantity orders  
+- **41** campaigns with suspicious conversions (> clicks)  
+- Marketing campaigns referencing **nonexistent sales orders**  
+
+👉 Each issue was documented, its **business impact explained**, and **SQL solutions applied**.
+
+---
+
+## 🛠️ How It Was Built
+
+### 1. SQL Server → Data Cleaning & Preparation
+Files in [`/sql`](./sql):
+- [`data_quality_checks.sql`](./sql/data_quality_checks.sql) → detected incoherent dates, invalid prices, fake orders, invalid conversions.  
+- [`data_cleaning.sql`](./sql/data_cleaning.sql) → fixed dates, normalized IDs, excluded invalid rows, validated campaign attribution.  
+- [`views.sql`](./sql/views.sql) → created **analysis-ready views** (`vw_sales_final`, `vw_marketing_orders`).  
+- [`queries.sql`](./sql/queries.sql) → business queries for KPIs (Revenue, ROI, Conversion Rate, Top Products, etc.).  
+
+### 2. DAX in Power BI
+- Custom measures for **Attributed Revenue, AOV, ROI, Valid Orders**.  
+
+### 3. Power BI
+- Executive dashboard for C-levels  
+- Drilldown page for analysts  
+
+---
+
+## 📸 Dashboard (Work in Progress)
+
+### Executive Overview
+- KPIs: **Total Revenue, Attributed Revenue, AOV, Total Spend, ROI, Valid Orders**  
+- Attributed Revenue vs Spend by Campaign  
+- Revenue by Product Category  
+- Revenue & Spend Trends by Month  
+
+### Drilldown Page
+- Campaign-level table  
+- Breakdown by product, region, and sales channel  
+- ROI distribution and customer-level insights  
+
+(*screenshots will be added here*)  
 
 ---
 
@@ -42,51 +86,37 @@ Provide an executive view for decision makers and a detailed drilldown for analy
 
 From the analysis:
 
-* ROI was negative in most campaigns → Marketing spend was higher than attributed revenue.
-
-* Some campaigns had high clicks but very low conversions, suggesting poor targeting or landing page issues.
-
-* The North region and Electronics category stood out as strong performers, driving most valid revenue.
-
-* Several sales orders had invalid or zero quantities, revealing data quality issues that required cleaning before insights.
+- **ROI was negative** in most campaigns → spend was higher than attributed revenue.  
+- Some campaigns had **high clicks but low conversions**, pointing to poor targeting/landing page issues.  
+- **North region** and **Electronics category** were strong performers.  
+- Multiple invalid/zero-quantity orders showed the **importance of cleaning before analysis**.  
 
 ---
 
-## 🛠️ How It Was Built
+## 🧠 Business Impact
 
-**SQL Server** → Data cleaning & preparation (fixing dates, unit prices, invalid orders, campaign attribution)
+This project demonstrates how **technical SQL + DAX work directly connects to business outcomes**:
 
-**DAX in Power BI** → Calculating business KPIs (AOV, Attributed Revenue, ROI)
-
-**Power BI** → Dashboard storytelling for both executives and analysts
+- Turning messy raw data into **trusted KPIs**  
+- Giving executives **clarity** on where money is being wasted  
+- Highlighting where to cut spend, double down, or fix inefficiencies  
 
 ---
 
 ## 🏆 Takeaways
 
-This project simulates a real e-commerce analytics workflow, where technical SQL/DAX work directly connects to business impact:
-
-- Turning raw, inconsistent data into actionable KPIs
-
-- Showing executives not just numbers, but decisions: where to cut spend, where to double down, and where to improve campaign efficiency
+- SQL isn’t just querying — it’s **data quality assurance + cleaning**.  
+- Business dashboards need **both an executive view and detailed drilldowns**.  
+- Storytelling matters: KPIs only make sense when tied to **real business decisions**.  
 
 ---
 
-## 📸 Dashboard (Work in Progress)
-Executive Overview
+## ⚙️ Tech Stack
 
-* KPIs: Total Revenue, Attributed Revenue, AOV, Total Spend, ROI, Valid Orders
+- **SQL Server** – data validation, cleaning, transformations  
+- **Power BI (DAX)** – KPIs, dashboard storytelling  
+- **Excel/CSV** – raw data  
 
-* Attributed Revenue & Total Spend by Campaign
+---
 
-* Revenue by Product Category
-
-* Revenue & Spend Trends by Month
-
-## Drilldown Page
-
-* Detailed campaign-level table
-
-* Breakdown by product, region, and sales channel
-
-* ROI distribution and customer-level insights
+👤 Author: [Claudenilson Junior](https://github.com/Claudenilsonjunior)  
