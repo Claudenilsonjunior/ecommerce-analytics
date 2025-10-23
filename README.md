@@ -1,4 +1,4 @@
-# 📊 Marketing Analytics Dashboard – E-commerce Campaign Insights
+# 📊 Marketing Analytics – E-commerce Campaign Insights
 
 In this project, I step into the role of a **Data Analyst** at an e-commerce company struggling to understand the real impact of its marketing investments.
 
