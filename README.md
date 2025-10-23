@@ -78,7 +78,6 @@ Files in [`/sql`](./sql):
 - Breakdown by product, region, and sales channel  
 - ROI distribution and customer-level insights  
 
-(*screenshots will be added here*)  
 
 ---
 
@@ -100,14 +99,6 @@ This project demonstrates how **technical SQL + DAX work directly connects to bu
 - Turning messy raw data into **trusted KPIs**  
 - Giving executives **clarity** on where money is being wasted  
 - Highlighting where to cut spend, double down, or fix inefficiencies  
-
----
-
-## 🏆 Takeaways
-
-- SQL isn’t just querying — it’s **data quality assurance + cleaning**.  
-- Business dashboards need **both an executive view and detailed drilldowns**.  
-- Storytelling matters: KPIs only make sense when tied to **real business decisions**.  
 
 ---
 
